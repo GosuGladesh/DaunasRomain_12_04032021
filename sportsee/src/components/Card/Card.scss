@@ -1,0 +1,19 @@
+.card {
+    border-radius: 5px;
+    background-color: #FBFBFB;
+    width: 258px;
+    height: 124px;
+    padding: 10px;
+    margin: 20px;
+    display: grid; 
+    grid-template-columns: 0.5fr 1.5fr; 
+    grid-template-rows: 1fr 1fr; 
+    grid-template-areas: 
+    "a b"
+    "a c";
+
+    img {
+        grid-area: a;
+        align-self: center;
+    }
+}

@@ -1,0 +1,34 @@
+.nutrition {
+    display: flex;
+    flex-direction: column;
+    grid-area: c;
+}
+
+.activity {
+    width: 835px;
+    height: 320px;
+    background-color: red;
+    grid-area: a;
+}
+
+.chart {
+    width: 258px;
+    height: 263px;
+    background-color: blue;
+    
+
+    &__container {
+        display: flex;
+        grid-area: b;
+    }
+}
+
+.data {
+    margin-left: 120px;
+    display: grid; 
+    grid-template-columns: 1.5fr 0.5fr; 
+    grid-template-rows: 1fr 1fr; 
+    grid-template-areas: 
+    "a c"
+    "b c";
+}

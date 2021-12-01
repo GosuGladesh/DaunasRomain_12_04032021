@@ -1,4 +1,4 @@
-
+import PropTypes from 'prop-types';
 
 function Nav(props) {
     return <div class={props.direction}>
@@ -6,4 +6,8 @@ function Nav(props) {
     </div>
 }
 
+Nav.propTypes = {
+    direction: PropTypes.string,
+    data: PropTypes.node
+}
 export default Nav;
