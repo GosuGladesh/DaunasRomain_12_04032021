@@ -7,7 +7,7 @@
 .activity {
     width: 835px;
     height: 320px;
-    background-color: red;
+    
     grid-area: a;
 }
 
@@ -18,13 +18,35 @@
     
 
     &__container {
+        /*
+        display: grid; 
+        grid-template-columns: 1fr 1fr 1fr; 
+        grid-template-rows: 1fr; 
+        gap: 0px 0px; 
+        grid-template-areas: 
+            "average performance score"; 
+        grid-area: b; */
         display: flex;
-        grid-area: b;
     }
 }
-
+.radar {
+    border-radius: 5px;
+    margin:10px;
+    background-color: #282D30;
+}
+.line {
+    border-radius: 5px;
+    margin:10px;
+    background-color: #FF0000;
+}
+.radial {
+    border-radius: 5px;
+    margin:10px;
+    background-color: #979797;
+}
 .data {
     margin-left: 120px;
+    align-items: center;
     display: grid; 
     grid-template-columns: 1.5fr 0.5fr; 
     grid-template-rows: 1fr 1fr; 
