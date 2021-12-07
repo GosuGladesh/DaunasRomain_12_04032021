@@ -4,13 +4,14 @@ import Performance from "../../components/Performance/Performance";
 
 import PropTypes from 'prop-types';
 
-import {Legend, PolarAngleAxis, Cell, RadialBarChart, RadialBar } from "recharts";
-
 import fat_icon from "../../img/fat-icon.svg";
 import carbs_icon from "../../img/carbs-icon.svg";
 import calories_icon from "../../img/calories-icon.svg";
 import protein_icon from "../../img/protein-icon.svg";
 import AverageSession from "../../components/AverageSession/AverageSession";
+import Score from "../../components/Score/Score";
+
+
 
 
 function Dashboard(props) {
@@ -33,17 +34,10 @@ function Dashboard(props) {
                                 <Performance performance={radarData} />
                             </div>
                             <div class="radial">
-                                <RadialBarChart width={258} height={263} innerRadius="70%" outerRadius="80%" data={radialData} startAngle={-180} endAngle={-360}>
-                                    <PolarAngleAxis type="number"  domain={[0, 1]} angleAxisId={0} tick={false} />
-                                    <RadialBar dataKey='score' clockWise={true}>
-                                        <Cell fill="#FF0000"/>
-                                    </RadialBar>
-                                    <Legend />
-                                    <Legend />
-                                </RadialBarChart>                                                    
+                                <Score radialData={radialData} />
                             </div>
                                                    
-                            </div>
+                </div>
                     
                         <div class="nutrition">
                             <Card image={calories_icon} value="1930kCal" name="Calories"/>

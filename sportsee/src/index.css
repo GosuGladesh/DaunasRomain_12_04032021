@@ -52,6 +52,18 @@
   align-self: center;
 }
 
+.score {
+  position: absolute;
+  top: 80px;
+  left: 100px;
+}
+.score__text {
+  width: 60px;
+}
+.score__text b {
+  font-size: 1.5em;
+}
+
 .nutrition {
   display: flex;
   flex-direction: column;
@@ -94,9 +106,10 @@
 }
 
 .radial {
+  position: relative;
   border-radius: 5px;
   margin: 10px;
-  background-color: #979797;
+  background-color: #FBFBFB;
 }
 
 .data {
