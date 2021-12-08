@@ -38,6 +38,7 @@
     border-radius: 5px;
     margin:10px;
     background-color: #FF0000;
+    padding: 0 7px;
 }
 .radial {
     position: relative;
@@ -54,4 +55,15 @@
     grid-template-areas: 
     "a c"
     "b c";
+}
+.dashboard {
+    &__greeting {
+        text-align: left;
+        margin-left: 200px;
+    }
+
+    &__message {
+        text-align: left;
+        margin-left: 200px;
+    }
 }

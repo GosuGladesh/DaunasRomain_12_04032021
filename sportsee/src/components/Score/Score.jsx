@@ -17,7 +17,6 @@ function Score(props) {
                                         <Cell fill="#FF0000"/>
                                     </RadialBar>
                                     <Legend verticalAlign="top" align="left"  content={<ScoreTitle />}/>
-                                    <Tooltip cursor={false} />
                 </RadialBarChart>   
                 <div class="score">
                     <p class="score__text"><b>{props.radialData[0].score * 100 }%</b> de votre objectif</p>

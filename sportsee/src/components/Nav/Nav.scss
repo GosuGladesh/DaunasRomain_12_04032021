@@ -32,9 +32,10 @@
             margin: 10px;
         }
         p {
-        color: #FFFFFF;
-        writing-mode: vertical-lr;
-        margin-top: 100px;
+            color: #FFFFFF;
+            writing-mode: vertical-lr;
+            transform: rotate(180deg);
+            margin-top: 100px;
         }
     }
 

@@ -32,6 +32,7 @@
 .nav--vertical p {
   color: #FFFFFF;
   writing-mode: vertical-lr;
+  transform: rotate(180deg);
   margin-top: 100px;
 }
 
@@ -39,10 +40,11 @@
   border-radius: 5px;
   background-color: #FBFBFB;
   width: 258px;
-  height: 124px;
+  height: 100px;
   padding: 10px;
   margin: 20px;
   display: grid;
+  align-items: center;
   grid-template-columns: 0.5fr 1.5fr;
   grid-template-rows: 1fr 1fr;
   grid-template-areas: "a b" "a c";
@@ -103,6 +105,7 @@
   border-radius: 5px;
   margin: 10px;
   background-color: #FF0000;
+  padding: 0 7px;
 }
 
 .radial {
@@ -121,12 +124,25 @@
   grid-template-areas: "a c" "b c";
 }
 
+.dashboard__greeting {
+  text-align: left;
+  margin-left: 200px;
+}
+.dashboard__message {
+  text-align: left;
+  margin-left: 200px;
+}
+
 * {
   font-family: "Roboto", sans-serif;
 }
 
 body {
   padding: 0;
+  margin: 0;
+}
+
+p {
   margin: 0;
 }
 

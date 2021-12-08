@@ -20,8 +20,8 @@ function Dashboard(props) {
     const radarData = [{ "value": 200, "kind": 1 }, { "value": 240, "kind": 2 }, { "value": 80, "kind": 3 }, { "value": 80, "kind": 4 }, { "value": 220, "kind": 5 }, { "value": 110, "kind": 6 }];
     const uData = [{ "day": "2020-07-01", "kilogram": 70, "calories": 240 }, { "day": "2020-07-02", "kilogram": 69, "calories": 220 }, { "day": "2020-07-03", "kilogram": 70, "calories": 280 }, { "day": "2020-07-04", "kilogram": 70, "calories": 500 }, { "day": "2020-07-05", "kilogram": 69, "calories": 160 }, { "day": "2020-07-06", "kilogram": 69, "calories": 162 }, { "day": "2020-07-07", "kilogram": 69, "calories": 390 }];
     return(  <div class="dashboard">
-                <h1>Bonjour {props.name}</h1>
-                <p>Félicitation ! Vous avez explosé vos objectifs hier</p>
+                <h1 class="dashboard__greeting">Bonjour {props.name}</h1>
+                <p class="dashboard__message">Félicitation ! Vous avez explosé vos objectifs hier</p>
                 <div class="data">
                         <div class="activity">
                             <Activity activity={uData}/>
