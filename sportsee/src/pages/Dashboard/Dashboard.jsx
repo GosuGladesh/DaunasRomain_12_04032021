@@ -1,57 +1,81 @@
 import Card from "../../components/Card/Card";
 import Activity from "../../components/Activity/Activity";
 import Performance from "../../components/Performance/Performance";
+import Score from "../../components/Score/Score";
+import AverageSession from "../../components/AverageSession/AverageSession";
 
 import PropTypes from 'prop-types';
+import React, {useState, useEffect} from "react";
+
+import {getActivity, getAverageSession, getData, getPerformance} from "../../services/dataFetch";
 
 import fat_icon from "../../img/fat-icon.svg";
 import carbs_icon from "../../img/carbs-icon.svg";
 import calories_icon from "../../img/calories-icon.svg";
 import protein_icon from "../../img/protein-icon.svg";
-import AverageSession from "../../components/AverageSession/AverageSession";
-import Score from "../../components/Score/Score";
 
 
+class  Dashboard extends React.Component{
+       
 
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
 
-function Dashboard(props) {
-    const radialData = [{"score": 0.3}];
-    const lineData = [{ "day": 1, "sessionLength": 30 }, { "day": 2, "sessionLength": 40 }, { "day": 3, "sessionLength": 50 }, { "day": 4, "sessionLength": 30 }, { "day": 5, "sessionLength": 30 }, { "day": 6, "sessionLength": 50 }, { "day": 7, "sessionLength": 50 }];
-    const radarData = [{ "value": 200, "kind": 1 }, { "value": 240, "kind": 2 }, { "value": 80, "kind": 3 }, { "value": 80, "kind": 4 }, { "value": 220, "kind": 5 }, { "value": 110, "kind": 6 }];
-    const uData = [{ "day": "2020-07-01", "kilogram": 70, "calories": 240 }, { "day": "2020-07-02", "kilogram": 69, "calories": 220 }, { "day": "2020-07-03", "kilogram": 70, "calories": 280 }, { "day": "2020-07-04", "kilogram": 70, "calories": 500 }, { "day": "2020-07-05", "kilogram": 69, "calories": 160 }, { "day": "2020-07-06", "kilogram": 69, "calories": 162 }, { "day": "2020-07-07", "kilogram": 69, "calories": 390 }];
-    return(  <div class="dashboard">
-                <h1 class="dashboard__greeting">Bonjour {props.name}</h1>
-                <p class="dashboard__message">Félicitation ! Vous avez explosé vos objectifs hier</p>
-                <div class="data">
-                        <div class="activity">
-                            <Activity activity={uData}/>
-                        </div>
-                <div class="chart__container">
-                    <div class="line">
-                        <AverageSession averageSession={lineData} />                                        
-                    </div>
-                            <div class="radar">                    
-                                <Performance performance={radarData} />
-                            </div>
-                            <div class="radial">
-                                <Score radialData={radialData} />
-                            </div>
+    componentDidMount() {
+        getData().then(userData => this.setState({ data: userData }));
+        getActivity().then(userActivity => this.setState({ activity: userActivity }));
+        getPerformance().then(userperformance => this.setState({ performance: userperformance }));
+        getAverageSession().then(userAverage => this.setState({ average: userAverage }));
+        console.log("data:" + this.state.data);
+        console.log("perf:" + this.state.performance);
+        console.log("avg:" + this.state.average);
+        console.log("act:" + this.state.activity);
+    }
+    
+    
+
+    render() {
+
+        if (!this.state.data || !this.state.average || !this.state.performance || !this.state.activity) { return null }
+        const radialData = [{ score: this.state.data.todayScore }];
+        const lineData = this.state.average.sessions;
+        const radarData = this.state.performance.data;
+        const uData = this.state.activity.sessions;
+
+        return (
+        <div class="dashboard">
+        <h1 class="dashboard__greeting">Bonjour {this.state.data.userInfos.firstName}</h1>
+        <p class="dashboard__message">Félicitation ! Vous avez explosé vos objectifs hier</p>
+        <div class="data">
+            <div class="activity">
+                <Activity activity={uData} />
+            </div>
+            <div class="chart__container">
+                <div class="line">
+                    <AverageSession averageSession={lineData} />
+                </div>
+                <div class="radar">
+                    <Performance performance={radarData} />
+                </div>
+                <div class="radial">
+                    <Score radialData={radialData} />
+                </div>
                                                    
-                </div>
+            </div>
                     
-                        <div class="nutrition">
-                            <Card image={calories_icon} value="1930kCal" name="Calories"/>
-                            <Card image={protein_icon} value="155g" name="Proteines"/>
-                            <Card image={carbs_icon} value="290g" name="Glucides"/>
-                            <Card image={fat_icon} value="50g" name="Lipides"/>
-                    </div>
-                </div>
+            <div class="nutrition">
+                <Card image={calories_icon} value={this.state.data.keyData.calorieCount+"kCal"} name="Calories" />
+                <Card image={protein_icon} value={this.state.data.keyData.proteinCount+"g"} name="Proteines" />
+                <Card image={carbs_icon} value={this.state.data.keyData.carbohydrateCount+"g"} name="Glucides" />
+                <Card image={fat_icon} value={this.state.data.keyData.lipidCount+"g"} name="Lipides" />
+            </div>
+        </div>
     </div>
-    )
+        )
+    }
 }
 
-Dashboard.propTypes = {
-    name: PropTypes.string
-}
 
 export default Dashboard;

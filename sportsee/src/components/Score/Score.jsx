@@ -1,7 +1,7 @@
-import { RadialBarChart, PolarAngleAxis, RadialBar, Legend, Tooltip, Cell} from "recharts";
+import { RadialBarChart, PolarAngleAxis, RadialBar, Legend, Cell} from "recharts";
 import PropTypes from 'prop-types';
 
-function ScoreTitle({props}) {
+function ScoreTitle(props) {
     return (
         <div><p>Score</p></div>
     )
@@ -9,6 +9,7 @@ function ScoreTitle({props}) {
 
 
 function Score(props) {
+    
     
     return (<>
                  <RadialBarChart width={258} height={263} innerRadius="70%" outerRadius="80%" data={props.radialData} startAngle={-180} endAngle={-720}>
@@ -25,6 +26,7 @@ function Score(props) {
     )
 }
 
-
-
+Score.propTypes = {
+    score: PropTypes.array
+}
 export default Score;

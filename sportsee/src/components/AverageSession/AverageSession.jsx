@@ -1,4 +1,4 @@
-import { LineChart, Line, XAxis, Legend, Tooltip, ResponsiveContainer} from "recharts";
+import { LineChart, Line, XAxis, Legend, Tooltip} from "recharts";
 import PropTypes from 'prop-types';
 
 function LineTooltip({active, payload}) {
@@ -28,5 +28,8 @@ LineTooltip.propTypes = {
 	active: PropTypes.bool,
 	payload: PropTypes.array,
 };
+AverageSession.propTypes = {
+    averageSession: PropTypes.array
+}
 
 export default AverageSession;

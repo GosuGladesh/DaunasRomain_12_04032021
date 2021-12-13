@@ -1,4 +1,5 @@
-import { BarChart, CartesianGrid, XAxis, YAxis, Bar, Legend, Tooltip} from "recharts";
+import { BarChart, CartesianGrid, XAxis, YAxis, Bar, Legend, Tooltip } from "recharts";
+import PropTypes from 'prop-types';
 
 
 function ActivityTooltip({active, payload}) {
@@ -18,14 +19,16 @@ function Activity(props) {
                             <BarChart width={730} height={250} data={props.activity}>
                                 <CartesianGrid strokeDasharray="3 3" vertical={false}/>
                                 <XAxis dataKey="name"/>
-                                <YAxis />
+                                <YAxis orientation="right"/>
                                 <Tooltip content={<ActivityTooltip />}/>
-                                <Legend verticalAlign="top" align="right" iconType="circle"/>
+                                <Legend verticalAlign="top" align="right" iconType="circle" />
                                 <Bar dataKey="kilogram" fill="#E60000" barSize={10}/>
                                 <Bar dataKey="calories" fill="#282D30" barSize={10}/>
                             </BarChart>
     )
 }
 
-
+Activity.propTypes = {
+    activity: PropTypes.array
+}
 export default Activity;

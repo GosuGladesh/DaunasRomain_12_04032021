@@ -1,5 +1,6 @@
 import { RadarChart, Radar ,PolarGrid, PolarAngleAxis} from "recharts";
 
+import PropTypes from 'prop-types';
 
 function Performance(props) {
     
@@ -12,5 +13,7 @@ function Performance(props) {
     )
 }
 
-
+Performance.propTypes = {
+    performance: PropTypes.array
+}
 export default Performance;
