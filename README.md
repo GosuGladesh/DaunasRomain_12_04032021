@@ -1,7 +1,7 @@
 
 ## Prerequisites
 
--   [NodeJS](https://nodejs.org/en/) v14.16.1 (contains npm, which is also needed)
+-   [NodeJS](https://nodejs.org/en/) v14.16.1
 
 ## Dependencies
 
