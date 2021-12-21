@@ -1,7 +1,7 @@
 .score {
     position: absolute;
-    top: 80px;
-    left: 100px;
+    top: calc(50% - 35px);
+    left: calc(50% - 30px);
 
     &__text {
         width: 60px;

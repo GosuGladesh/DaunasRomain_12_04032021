@@ -4,8 +4,8 @@ import Performance from "../../components/Performance/Performance";
 import Score from "../../components/Score/Score";
 import AverageSession from "../../components/AverageSession/AverageSession";
 
-import PropTypes from 'prop-types';
-import React, {useState, useEffect} from "react";
+
+import React from "react";
 
 import {getActivity, getAverageSession, getData, getPerformance} from "../../services/dataFetch";
 
@@ -15,38 +15,38 @@ import calories_icon from "../../img/calories-icon.svg";
 import protein_icon from "../../img/protein-icon.svg";
 
 
+/**
+ * Dashboard Page
+ *
+ */
 class  Dashboard extends React.Component{
        
 
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {id : window.location.pathname.substring(1)};
     }
 
     componentDidMount() {
-        getData().then(userData => this.setState({ data: userData }));
-        getActivity().then(userActivity => this.setState({ activity: userActivity }));
-        getPerformance().then(userperformance => this.setState({ performance: userperformance }));
-        getAverageSession().then(userAverage => this.setState({ average: userAverage }));
-        console.log("data:" + this.state.data);
-        console.log("perf:" + this.state.performance);
-        console.log("avg:" + this.state.average);
-        console.log("act:" + this.state.activity);
+        getData(this.state.id).then(userData => this.setState({ data: userData }));
+        getActivity(this.state.id).then(userActivity => this.setState({ activity: userActivity }));
+        getPerformance(this.state.id).then(userperformance => this.setState({ performance: userperformance }));
+        getAverageSession(this.state.id).then(userAverage => this.setState({ average: userAverage }));
     }
     
-    
-
     render() {
 
         if (!this.state.data || !this.state.average || !this.state.performance || !this.state.activity) { return null }
         const radialData = [{ score: this.state.data.todayScore }];
         const lineData = this.state.average.sessions;
-        const radarData = this.state.performance.data;
+        
         const uData = this.state.activity.sessions;
 
+        const radarData = this.state.performance;
+        
         return (
         <div class="dashboard">
-        <h1 class="dashboard__greeting">Bonjour {this.state.data.userInfos.firstName}</h1>
+        <h1 class="dashboard__greeting">Bonjour <span>{this.state.data.userInfos.firstName}</span></h1>
         <p class="dashboard__message">Félicitation ! Vous avez explosé vos objectifs hier</p>
         <div class="data">
             <div class="activity">
@@ -61,8 +61,7 @@ class  Dashboard extends React.Component{
                 </div>
                 <div class="radial">
                     <Score radialData={radialData} />
-                </div>
-                                                   
+                </div>                                     
             </div>
                     
             <div class="nutrition">

@@ -1,27 +1,54 @@
 
-async function getData() {
-    let userData =  await fetch("http://localhost:4000/user/12/")
+/**
+ * Gets user infos from the API
+ *
+ * @param {string} id User id
+ * @returns {object} Response
+ */
+async function getData(id) {
+    let userData =  await fetch(`http://localhost:4000/user/${id}`)
         .then(response => response.json())
         .then(responseData => { return responseData.data })
     return userData;
 }
 
-async function getActivity() {
-    let userActivity = await fetch("http://localhost:4000/user/12/activity")
+/**
+ * Gets user activity from the API
+ *
+ * @param {string} id User id
+ * @returns {object} Response
+ */
+async function getActivity(id) {
+    let userActivity = await fetch(`http://localhost:4000/user/${id}/activity`)
         .then(response => response.json())
         .then(responseData => { return responseData.data })
     return userActivity;
 }
 
-async function getPerformance() {
-    let userPerformance = await fetch("http://localhost:4000/user/12/performance")
+/**
+ * Gets user performance from the API
+ *
+ * @param {string} id User id
+ * @returns {object} Response
+ */
+async function getPerformance(id) {
+    let userPerformance = await fetch(`http://localhost:4000/user/${id}/performance`)
         .then(response => response.json())
-        .then(responseData => { return responseData.data })
+        .then(responseData => {
+            return responseData.data.data
+        })
+       
     return userPerformance;
 }
 
-async function getAverageSession() {
-    let userAverage = await fetch("http://localhost:4000/user/12/average-sessions")
+/**
+ * Gets user average sessions from the API
+ *
+ * @param {string} id User id
+ * @returns {object} Response
+ */
+async function getAverageSession(id) {
+    let userAverage = await fetch(`http://localhost:4000/user/${id}/average-sessions`)
         .then(response => response.json())
         .then(responseData => { return responseData.data })
     return userAverage;

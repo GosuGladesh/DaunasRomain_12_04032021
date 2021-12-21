@@ -1,51 +1,3 @@
-.nutrition {
-    display: flex;
-    flex-direction: column;
-    grid-area: c;
-}
-
-.activity {
-    width: 835px;
-    height: 320px;
-    
-    grid-area: a;
-}
-
-.chart {
-    width: 258px;
-    height: 263px;
-    background-color: blue;
-    
-
-    &__container {
-        /*
-        display: grid; 
-        grid-template-columns: 1fr 1fr 1fr; 
-        grid-template-rows: 1fr; 
-        gap: 0px 0px; 
-        grid-template-areas: 
-            "average performance score"; 
-        grid-area: b; */
-        display: flex;
-    }
-}
-.radar {
-    border-radius: 5px;
-    margin:10px;
-    background-color: #282D30;
-}
-.line {
-    border-radius: 5px;
-    margin:10px;
-    background-color: #FF0000;
-    padding: 0 7px;
-}
-.radial {
-    position: relative;
-    border-radius: 5px;
-    margin:10px;
-    background-color: #FBFBFB;
-}
 .data {
     margin-left: 120px;
     align-items: center;
@@ -56,14 +8,70 @@
     "a c"
     "b c";
 }
+.nutrition {
+    display: flex;
+    flex-direction: column;
+    grid-area: c;
+}
+
+.activity {
+    width: 635px;
+    height: 260px;
+    grid-area: a;
+}
+
+.chart {
+    width: 258px;
+    height: 263px;
+    background-color: blue;
+    
+
+    &__container {
+        display: grid; 
+        grid-template-columns: 1fr 1fr 1fr; 
+        grid-template-rows: 1fr; 
+        gap: 0px 0px; 
+        grid-template-areas: 
+            "average performance score"; 
+        grid-area: b; 
+        
+    }
+}
+.radar {
+    border-radius: 5px;
+    margin:10px;
+    background-color: #282D30;
+    grid-area: performance;
+}
+.line {
+    border-radius: 5px;
+    margin:10px;
+    background-color: #FF0000;
+    padding: 0 7px;
+    grid-area: average;
+}
+.radial {
+    position: relative;
+    border-radius: 5px;
+    margin:10px;
+    background-color: #FBFBFB;
+    grid-area: score;
+    display: flex;
+    justify-content: center;
+}
+
 .dashboard {
     &__greeting {
         text-align: left;
-        margin-left: 200px;
+        margin-left: 120px;
+
+        span{
+            color: red;
+        }
     }
 
     &__message {
         text-align: left;
-        margin-left: 200px;
+        margin-left: 120px;
     }
 }

@@ -1,7 +1,13 @@
-import { BarChart, CartesianGrid, XAxis, YAxis, Bar, Legend, Tooltip } from "recharts";
+import { BarChart, CartesianGrid, XAxis, YAxis, Bar, Legend, Tooltip, ResponsiveContainer } from "recharts";
 import PropTypes from 'prop-types';
 
-
+/**
+ * Bar chart custom Tooltip
+ *
+ * @param {boolean} active If the data is hovered
+ * @param {object} payload data hovered
+ * @returns {node} Response
+ */
 function ActivityTooltip({active, payload}) {
     
     if (active) {
@@ -13,18 +19,27 @@ function ActivityTooltip({active, payload}) {
     return null
 }
 
+/**
+ * Activity chart component
+ *
+ * @param {object} props 
+ * @returns {node} recharts bar chart
+ */
 function Activity(props) {
     
     return (
-                            <BarChart width={730} height={250} data={props.activity}>
-                                <CartesianGrid strokeDasharray="3 3" vertical={false}/>
-                                <XAxis dataKey="name"/>
-                                <YAxis orientation="right"/>
-                                <Tooltip content={<ActivityTooltip />}/>
-                                <Legend verticalAlign="top" align="right" iconType="circle" />
-                                <Bar dataKey="kilogram" fill="#E60000" barSize={10}/>
-                                <Bar dataKey="calories" fill="#282D30" barSize={10}/>
+        <ResponsiveContainer>
+             <BarChart data={props.activity} >
+                <CartesianGrid strokeDasharray="3 3" vertical={false}/>
+                <XAxis tickCount={7} ticks={["1","2","3","4","5","6","7"]}/>
+                <YAxis orientation="right"/>
+                <Tooltip content={<ActivityTooltip />} /> 
+                <Bar dataKey="kilogram" fill="#282D30" barSize={10} />
+                <Bar dataKey="calories" fill="#E60000" barSize={10}/>                
+                <Legend verticalAlign="top" align="right" iconType="circle" height={40}/>
                             </BarChart>
+        </ResponsiveContainer>
+                           
     )
 }
 

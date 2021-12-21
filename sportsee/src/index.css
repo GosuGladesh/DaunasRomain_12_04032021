@@ -1,17 +1,20 @@
 .nav {
   background-color: #000000;
-  padding-left: 20px;
-  padding-right: 20px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  height: 100px;
-  width: calc(100vw - 40px);
+  height: 80px;
+  width: 100vw;
+  position: relative;
+  z-index: 2;
 }
 .nav a {
   color: #FFFFFF;
   text-decoration: none;
-  font-size: 24pt;
+  font-size: 20pt;
+  margin: auto;
+}
+.nav img {
+  margin-left: 20px;
 }
 .nav--vertical {
   position: absolute;
@@ -20,16 +23,20 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: calc(100vh - 100px);
-  width: 100px;
+  height: 100vh;
+  z-index: 0;
+  width: 80px;
   margin-right: auto;
   margin-left: 0;
   bottom: 0;
 }
 .nav--vertical img {
   margin: 10px;
+  height: 48px;
+  width: 48px;
 }
 .nav--vertical p {
+  font-size: 10pt;
   color: #FFFFFF;
   writing-mode: vertical-lr;
   transform: rotate(180deg);
@@ -39,80 +46,41 @@
 .card {
   border-radius: 5px;
   background-color: #FBFBFB;
-  width: 258px;
+  width: 208px;
   height: 100px;
-  padding: 10px;
+  padding-left: 10px;
   margin: 20px;
   display: grid;
   align-items: center;
   grid-template-columns: 0.5fr 1.5fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 0.5fr 0.5fr;
   grid-template-areas: "a b" "a c";
 }
 .card img {
   grid-area: a;
   align-self: center;
+  height: 48px;
+  width: 48px;
+}
+.card__title {
+  align-self: end;
+}
+.card__subtitle {
+  font-size: 8pt;
+  color: #74798C;
+  align-self: start;
 }
 
 .score {
   position: absolute;
-  top: 80px;
-  left: 100px;
+  top: calc(50% - 35px);
+  left: calc(50% - 30px);
 }
 .score__text {
   width: 60px;
 }
 .score__text b {
   font-size: 1.5em;
-}
-
-.nutrition {
-  display: flex;
-  flex-direction: column;
-  grid-area: c;
-}
-
-.activity {
-  width: 835px;
-  height: 320px;
-  grid-area: a;
-}
-
-.chart {
-  width: 258px;
-  height: 263px;
-  background-color: blue;
-}
-.chart__container {
-  /*
-  display: grid; 
-  grid-template-columns: 1fr 1fr 1fr; 
-  grid-template-rows: 1fr; 
-  gap: 0px 0px; 
-  grid-template-areas: 
-      "average performance score"; 
-  grid-area: b; */
-  display: flex;
-}
-
-.radar {
-  border-radius: 5px;
-  margin: 10px;
-  background-color: #282D30;
-}
-
-.line {
-  border-radius: 5px;
-  margin: 10px;
-  background-color: #FF0000;
-  padding: 0 7px;
-}
-
-.radial {
-  position: relative;
-  border-radius: 5px;
-  margin: 10px;
-  background-color: #FBFBFB;
 }
 
 .data {
@@ -124,13 +92,67 @@
   grid-template-areas: "a c" "b c";
 }
 
+.nutrition {
+  display: flex;
+  flex-direction: column;
+  grid-area: c;
+}
+
+.activity {
+  width: 635px;
+  height: 260px;
+  grid-area: a;
+}
+
+.chart {
+  width: 258px;
+  height: 263px;
+  background-color: blue;
+}
+.chart__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas: "average performance score";
+  grid-area: b;
+}
+
+.radar {
+  border-radius: 5px;
+  margin: 10px;
+  background-color: #282D30;
+  grid-area: performance;
+}
+
+.line {
+  border-radius: 5px;
+  margin: 10px;
+  background-color: #FF0000;
+  padding: 0 7px;
+  grid-area: average;
+}
+
+.radial {
+  position: relative;
+  border-radius: 5px;
+  margin: 10px;
+  background-color: #FBFBFB;
+  grid-area: score;
+  display: flex;
+  justify-content: center;
+}
+
 .dashboard__greeting {
   text-align: left;
-  margin-left: 200px;
+  margin-left: 120px;
+}
+.dashboard__greeting span {
+  color: red;
 }
 .dashboard__message {
   text-align: left;
-  margin-left: 200px;
+  margin-left: 120px;
 }
 
 * {

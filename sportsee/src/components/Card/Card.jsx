@@ -1,10 +1,17 @@
 import PropTypes from 'prop-types';
 
+
+/**
+ * Card component
+ *
+ * @param {object} props 
+ * @returns {node} 
+ */
 function Card(props) {
     return  <div class="card">
                 <img src={props.image} alt="" />
-                <p>{props.value}</p>
-                <p>{props.name}</p>
+                <p class="card__title">{props.value}</p>
+                <p class="card__subtitle">{props.name}</p>
             </div>
 }
 
