@@ -39,9 +39,7 @@ class  Dashboard extends React.Component{
         if (!this.state.data || !this.state.average || !this.state.performance || !this.state.activity) { return null }
         const radialData = [{ score: this.state.data.todayScore }];
         const lineData = this.state.average.sessions;
-        
-        const uData = this.state.activity.sessions;
-
+        const barData = this.state.activity.sessions;
         const radarData = this.state.performance;
         
         return (
@@ -50,7 +48,7 @@ class  Dashboard extends React.Component{
         <p class="dashboard__message">Félicitation ! Vous avez explosé vos objectifs hier</p>
         <div class="data">
             <div class="activity">
-                <Activity activity={uData} />
+                <Activity activity={barData} />
             </div>
             <div class="chart__container">
                 <div class="line">

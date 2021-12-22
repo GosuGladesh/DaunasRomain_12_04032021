@@ -14,13 +14,13 @@ function Performance(props) {
     props.performance.forEach((item) => {            
                 switch (item.kind) {                
                     case  1:
-                        item.kind = "cardio";
+                        item.kind = "Cardio";
                         break;
                     case 2:
-                        item.kind = "energie";
+                        item.kind = "Energie";
                         break;
                     case  3:
-                        item.kind = "endurance";
+                        item.kind = "Endurance";
                         break;
                     case  4:
                         item.kind = "Force";
@@ -36,9 +36,9 @@ function Performance(props) {
             })
     return (
         <ResponsiveContainer>
-            <RadarChart outerRadius={60} data={props.performance}>
+            <RadarChart outerRadius={50} data={props.performance}>
                 <PolarGrid />
-                <PolarAngleAxis dataKey="kind" tickLine={false} tick={{ fill: "#FFFFFF", fontSize: 12 }} />
+                <PolarAngleAxis dataKey="kind" tickLine={false} tick={{ fill: "#FFFFFF", fontSize: 10 }} />
                 <Radar dataKey="value" stroke="#FF0000" fill="#FF0000" fillOpacity={0.6} />
             </RadarChart>  
         </ResponsiveContainer>

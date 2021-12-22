@@ -26,18 +26,22 @@ function ActivityTooltip({active, payload}) {
  * @returns {node} recharts bar chart
  */
 function Activity(props) {
-    
+    let i = 1;
+    props.activity.forEach((item) => {
+        item.id = i;
+        i++;
+    })
     return (
         <ResponsiveContainer>
-             <BarChart data={props.activity} >
+            <BarChart data={props.activity} >
                 <CartesianGrid strokeDasharray="3 3" vertical={false}/>
-                <XAxis tickCount={7} ticks={["1","2","3","4","5","6","7"]}/>
+                <XAxis dataKey="id"/>
                 <YAxis orientation="right"/>
                 <Tooltip content={<ActivityTooltip />} /> 
                 <Bar dataKey="kilogram" fill="#282D30" barSize={10} />
                 <Bar dataKey="calories" fill="#E60000" barSize={10}/>                
                 <Legend verticalAlign="top" align="right" iconType="circle" height={40}/>
-                            </BarChart>
+            </BarChart>
         </ResponsiveContainer>
                            
     )
