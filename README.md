@@ -2,6 +2,7 @@
 ## Prerequisites
 
 -   [NodeJS](https://nodejs.org/en/) v14.16.1
+-   [Sportsee Api](https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard)
 
 ## Dependencies
 
