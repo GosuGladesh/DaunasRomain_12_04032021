@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 /**
  * Static Title
- *
+ * @component
  * @returns {node} 
  */
 function ScoreTitle(props) {
@@ -14,7 +14,7 @@ function ScoreTitle(props) {
 
 /**
  * Score Chart component
- *
+ * @component
  * @param {object} props 
  * @returns {node} recharts radial bar chart
  */
@@ -37,6 +37,9 @@ function Score(props) {
 }
 
 Score.propTypes = {
+    /**
+    * Score data fetched from backend
+    */
     score: PropTypes.array
 }
 export default Score;

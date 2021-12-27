@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 /**
  * Performance Chart component
- *
+ * @component
  * @param {object} props 
  * @returns {node} recharts radar chart
  */
@@ -47,6 +47,9 @@ function Performance(props) {
 }
 
 Performance.propTypes = {
+    /**
+    * Performance data fetched from backend
+    */
     performance: PropTypes.array
 }
 export default Performance;

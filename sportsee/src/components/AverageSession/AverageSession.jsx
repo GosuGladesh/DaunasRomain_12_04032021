@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 /**
  * Custom Line chart Tooltip
- *
+ * @component
  * @param {boolean} active If the data is hovered
  * @param {object} payload data hovered
  * @returns {node} Response
@@ -17,7 +17,7 @@ function LineTooltip({active, payload}) {
 
 /**
  * Static Legend
- *
+ * @component
  * @returns {node} Response
  */
 function LineLegend(props) {
@@ -26,7 +26,7 @@ function LineLegend(props) {
 
 /**
  * Average Session Chart component
- *
+ * @component
  * @param {object} props 
  * @returns {node} recharts line chart
  */
@@ -72,10 +72,19 @@ function AverageSession(props) {
 }
 
 LineTooltip.propTypes = {
-	active: PropTypes.bool,
+    /**
+    * If the chart data is hovered
+    */
+    active: PropTypes.bool,
+    /**
+    * Value of the hovered point on the chart
+    */
 	payload: PropTypes.array,
 };
 AverageSession.propTypes = {
+    /**
+    * Session data fetched from backend
+    */
     averageSession: PropTypes.array
 }
 

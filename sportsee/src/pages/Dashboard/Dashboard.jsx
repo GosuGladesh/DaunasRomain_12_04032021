@@ -16,6 +16,7 @@ import protein_icon from "../../img/protein-icon.svg";
 
 
 /**
+ * @component
  * Dashboard Page
  *
  */

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 /**
  * Bar chart custom Tooltip
- *
+ * @component
  * @param {boolean} active If the data is hovered
  * @param {object} payload data hovered
  * @returns {node} Response
@@ -21,7 +21,7 @@ function ActivityTooltip({active, payload}) {
 
 /**
  * Activity chart component
- *
+ * @component
  * @param {object} props 
  * @returns {node} recharts bar chart
  */
@@ -48,6 +48,9 @@ function Activity(props) {
 }
 
 Activity.propTypes = {
+    /**
+    * Activity data fetched from backend
+    */
     activity: PropTypes.array
 }
 export default Activity;
