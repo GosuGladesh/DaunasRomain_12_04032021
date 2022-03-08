@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 /**
  * Performance Chart component
  * @component
- * @param {object} props 
+ * @param {object} props containing the array of data for the chart
  * @returns {node} recharts radar chart
  */
 function Performance(props) {

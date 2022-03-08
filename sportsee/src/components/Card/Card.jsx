@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 /**
  * Card component
  *
- * @param {object} props 
- * @returns {node} 
+ * @param {object} props containing the data for the card, image and text
+ * @returns {node} html code of the card
  */
 function Card(props) {
     return  <div class="card">

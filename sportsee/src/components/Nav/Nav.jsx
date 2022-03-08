@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 /**
  * navigation Bar component
  * @component
- * @param {object} props 
+ * @param {object} props containing the direction of the nav, vertical or not and the html to render inside it
  * @returns {node} 
  */
 function Nav(props) {

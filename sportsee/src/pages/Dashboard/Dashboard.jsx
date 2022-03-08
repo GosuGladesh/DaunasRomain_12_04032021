@@ -16,16 +16,23 @@ import protein_icon from "../../img/protein-icon.svg";
 
 
 /**
+ * Dashboard
+ * Fetch the data on Mount and display all chart by passing the data to them
  * @component
- * Dashboard Page
- *
+ * @returns {node} html template of the dashboard including alll the charts
  */
 class  Dashboard extends React.Component{
        
 
     constructor(props) {
         super(props);
-        this.state = {id : window.location.pathname.substring(1)};
+        if (window.location.pathname.substring(1)) {
+            this.state = {id : window.location.pathname.substring(1)};
+        }
+        else {
+            this.state = { id: "12" };
+        }
+        
     }
 
     componentDidMount() {
@@ -36,7 +43,6 @@ class  Dashboard extends React.Component{
     }
     
     render() {
-
         if (!this.state.data || !this.state.average || !this.state.performance || !this.state.activity) { return null }
         const radialData = [{ score: this.state.data.todayScore }];
         const lineData = this.state.average.sessions;
@@ -61,8 +67,7 @@ class  Dashboard extends React.Component{
                 <div class="radial">
                     <Score radialData={radialData} />
                 </div>                                     
-            </div>
-                    
+            </div>    
             <div class="nutrition">
                 <Card image={calories_icon} value={this.state.data.keyData.calorieCount+"kCal"} name="Calories" />
                 <Card image={protein_icon} value={this.state.data.keyData.proteinCount+"g"} name="Proteines" />

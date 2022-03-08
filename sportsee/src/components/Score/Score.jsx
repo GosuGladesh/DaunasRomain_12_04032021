@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 /**
  * Static Title
  * @component
- * @returns {node} 
+ * @returns {node} html to display the chart custom title
  */
 function ScoreTitle(props) {
     return (
@@ -15,7 +15,7 @@ function ScoreTitle(props) {
 /**
  * Score Chart component
  * @component
- * @param {object} props 
+ * @param {object} props containing the array of data for the chart
  * @returns {node} recharts radial bar chart
  */
 function Score(props) {
