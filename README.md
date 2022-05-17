@@ -1,4 +1,6 @@
 
+Mise en place de visualisation de données sous forme de graphiques à l'aide de Recharts
+
 ## Prerequisites
 
 -   [NodeJS](https://nodejs.org/en/) v14.16.1
